@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Undangan Pernikahan</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('ojl.jpeg') no-repeat center center fixed; /* Ganti dengan URL gambar Anda */
+            background-size: cover;
+            color: #000000;
+            overflow-x: hidden;
+        }
+        header {
+            background: rgba(67, 255, 255, 0.9);
+            color: rgb(0, 0, 0);
+            padding: 20px;
+            text-align: center;
+            position: relative;
+            animation: fadeIn 2s;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            border-bottom: 5px solid #ff4081;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            margin-bottom: 40px; /* Jarak antar pembatas */
+            position: relative;
+            overflow: hidden;
+            animation: fadeIn 1s ease-in-out;
+            background-color: rgb(174, 235, 235);
+            background-size: 100px; /* Ukuran pola */
+        }
+        .container::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 100%;
+            height: 5px;
+            background: #ff4081;
+            transform: translateX(-50%);
+            animation: slideIn 1s ease-in-out forwards;
+        }
+        @keyframes slideIn {
+            from {
+                width: 0;
+            }
+            to {
+                width: 100%;
+            }
+        }
+        .flower-animation {
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background-image: url('pis.jpeg'); /* Ganti dengan URL gambar bunga */
+            background-size: 10%;
+            opacity: 0.3;
+            animation: bloom 10s linear infinite;
+        }
+        @keyframes bloom {
+            0% { transform: translateY(0) scale(1); }
+            50% { transform: translateY(-20px) scale(1.1); }
+            100% { transform: translateY(0) scale(1); }
+        }
+        .greeting {
+            text-align: center;
+            font-size: 30px;
+            margin: 20px 0;
+            animation: fadeIn 1s ease-in-out;
+            animation-delay: 0.5s;
+        }
+        .names {
+            font-family: 'Great Vibes', cursive;
+            font-size: 48px;
+            color: #ff4081;
+        }
+        .honor {
+            text-align: center;
+            font-size: 24px;
+            margin: 20px 0;
+            font-weight: bold;
+            color: #000000;
+            animation: slideIn 1s ease-in-out;
+        }
+        .children, .greeting-message, .details, .map, .rsvp, .testimonials {
+            text-align: center;
+            font-size: 20px;
+            margin: 10px 0;
+            color: #000000;
+            font-style: italic;
+            border: 2px solid #ff4081;
+            border-radius: 10px;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.8);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s, box-shadow 0.3s;
+            animation: fadeIn 1s ease-in-out;
+        }
+        .children:hover, .greeting-message:hover, .details:hover, .map:hover, .rsvp:hover, .testimonials:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+        }
+        .countdown {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 20px 0;
+            font-size: 24px;
+            animation: bounce 2s infinite;
+        }
+        .countdown div {
+            background: rgba(4, 15, 66, 0.9);
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s;
+        }
+        .countdown div:hover {
+            transform: scale(1.1);
+        }
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
+        .gallery {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin: 20px 0;
+        }
+        .gallery img {
+            width: 30%;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s;
+        }
+        .gallery img:hover {
+            transform: scale(1.05);
+        }
+        footer {
+            text-align: center;
+            margin: 20px 0;
+            padding: 10px;
+            background: rgba(5, 167, 231, 0.9);
+            color: #333;
+            position: relative;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+        .rsvp button {
+            background: #ffb74d;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.3s;
+            font-size: 20px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+        .rsvp button:hover {
+            background: #ffa726;
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Undangan Pernikahan</h1>
+</header>
+
+<div class="container">
+    <div class="flower-animation"></div>
+    <div class="greeting">
+        <h2 class="names">Agil HUsni Mubarok & Disty shafiyatunnisa</h2>
+        <p>Kami Mengundang Anda untuk merayakan hari bahagia kami.</p>
+    </div>
+</div>
+
+<div class="container">
+    <div class="flower-animation"></div>
+    <div class="honor">
+        <p>Dengan Hormat,</p>
+        <p>Kami mengundang kehadiran Anda sebagai tamu istimewa kami.</p>
+    </div>
+</div>
+
+<div class="container">
+    <div class="flower-animation"></div>
+    <div class="children">
+        <p>Putra dan Putri dari:</p>
+        <p>Bapak Sudi Mubarok dan Ibu Aliah</p>
+        <p>Bapak Budi dan Ibu Ani</p>
+    </div>
+</div>
+
+<div class="container">
+    <div class="flower-animation"></div>
+    <div class="greeting-message">
+        <p>Assalamualaikum Wr.Wb.</p>
+        <p>Segala Puji hanya Milik Allah عَزَّ وَجَلَّ</p>
+        <p>وَمِنْ اٰيٰتِهٖٓ اَنْ خَلَقَ لَكُمْ مِّنْ اَنْفُسِكُمْ اَزْوَاجًا لِّتَسْكُنُوْٓا اِلَيْهَا وَجَعَلَ بَيْنَكُمْ مَّوَدَّةً وَّرَحْمَةً ۗاِنَّ فِيْ ذٰلِكَ لَاٰيٰتٍ لِّقَوْمٍ يَّتَفَكَّرُوْنَ</p>
+        <p>"Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri, agar kamu cenderung dan merasa tenteram kepadanya, dan Dia menjadikan di antaramu rasa kasih dan sayang. Sungguh, pada yang demikian itu benar-benar terdapat tanda-tanda (kebesaran Allah) bagi kaum yang berpikir." (QS. Ar-Rum:21)</p>
+        <p>Dengan Mengharap Ridho-Nya, Kami...</p>
+        <p>Agil Husni Mubarok<br>Putra dari Bapak Sudi Mubarok dan Ibu Tumijem</p>
+        <p>& Bermaksud Ingin Menyempurnakan Separuh Agama dan Mengikuti Sunnah Rasulullah ﷺ dalam Membangun Keluarga yang Sakinah, Mawaddah, Warohmah.</p>
+    </div>
+</div>
+
+<div class="container">
+    <div class="flower-animation"></div>
+    <div class="details">
+        <h2>Detail Acara</h2>
+        <p>Tanggal: Minggu,19 January 2025</p>
+        <p>Waktu: 14:00 WIB</p>
+        <p>Tempat: Sulteng,donggala,kec riopakava,lalundu 1</p>
+    </div>
+</div>
+
+<div class="container">
+    <div class="flower-animation"></div>
+    <div class="countdown" id="countdown">
+        <div><span id="days">00</span> Hari</div>
+        <div><span id="hours">00</span> Jam</div>
+        <div><span id="minutes">00</span> Menit</div>
+        <div><span id="seconds">00</span> Detik</div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="flower-animation"></div>
+    <div class="gallery">
+        <img src="pw.jpg" alt="Wedding Image 1">
+        <img src="pwww.jpeg" alt="Wedding Image 2">
+        <img src="pww.jpeg" alt="Wedding Image 3">
+    </div>
+</div>
+
+<div class="container">
+    <div class="flower-animation"></div>
+    <div class="testimonials">
+        <h2>Kata-Kata Bahagia</h2>
+        <p>"Semoga cinta kalian selalu bersinar dan abadi selamanya."</p>
+        <p>"Selamat menempuh hidup baru, semoga bahagia selalu!"</p>
+    </div>
+</div>
+
+<div class="container">
+    <div class="flower-animation"></div>
+    <div class="map">
+        <h2>Lokasi Acara</h2>
+        <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.245446730771!2d106.8455993150135!3d-6.208763995495982!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f3f2b5d8f8db%3A0x2a6c5e1a8e8f8c5!2sGedung%20Serba%20Guna!5e0!3m2!1sen!2sid!4v1635750501001!5m2!1sen!2sid" 
+            width="100%" 
+            height="200" 
+            style="border:0;" 
+            allowfullscreen="" 
+            loading="lazy">
+        </iframe>
+    </div>
+</div>
+
+<div class="container">
+    <div class="flower-animation"></div>
+    <div class="rsvp">
+        <h2>Konfirmasi Kehadiran</h2>
+        <button onclick="confirmRSVP()">Saya Hadir!</button>
+    </div>
+</div>
+
+<div class="container">
+    <div class="flower-animation"></div>
+    <div class="greeting-message">
+        <h2>Ucapan Selamat untuk Pengantin</h2>
+        <p>Selamat menempuh hidup baru! Semoga menjadi keluarga yang sakinah, mawaddah, warohmah.</p>
+    </div>
+</div>
+
+<footer>
+    <p>&copy; 2025 Undangan Pernikahan</p>
+</footer>
+
+<script>
+    function confirmRSVP() {
+        alert("Terima kasih telah mengonfirmasi kehadiran Anda!");
+    }
+
+    // Countdown Timer
+    const weddingDate = new Date("2025-12-25T14:00:00").getTime();
+    const countdownFunction = setInterval(() => {
+        const now = new Date().getTime();
+        const distance = weddingDate - now;
+
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        document.getElementById("days").innerHTML = days;
+        document.getElementById("hours").innerHTML = hours;
+        document.getElementById("minutes").innerHTML = minutes;
+        document.getElementById("seconds").innerHTML = seconds;
+
+        if (distance < 0) {
+            clearInterval(countdownFunction);
+            document.getElementById("countdown").innerHTML = "Acara Dimulai!";
+        }
+    }, 1000);
+</script>
+
+</body>
+</html>
